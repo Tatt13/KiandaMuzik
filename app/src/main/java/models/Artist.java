@@ -21,6 +21,9 @@ public class Artist {
         this.verified = verified;
     }
 
+    public Artist() {
+    }
+
     public int getId() {
         return id;
     }
@@ -53,11 +56,11 @@ public class Artist {
         this.musicStyle = musicStyle;
     }
 
-    public int getArtistCoverStyle() {
+    public int getArtistCover() {
         return artistCoverStyle;
     }
 
-    public void setArtistCoverStyle(int artistCoverStyle) {
+    public void setArtistCover(int artistCoverStyle) {
         this.artistCoverStyle = artistCoverStyle;
     }
 

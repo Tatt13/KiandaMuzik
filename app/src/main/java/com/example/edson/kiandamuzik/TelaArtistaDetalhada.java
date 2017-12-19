@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 
 import adapters.ArtistTrackAdapter;
+import adapters.PopularTracksAdapter;
 import models.Album;
 import models.ArtistTrackList;
 import models.Artist;
@@ -40,5 +41,6 @@ public class TelaArtistaDetalhada extends AppCompatActivity {
         listaDeMusicas.setLayoutManager(linearLayoutManager);
         ArtistTrackAdapter adapter = new ArtistTrackAdapter(this, fsTrackList);
         listaDeMusicas.setAdapter(adapter);
+
     }
 }
