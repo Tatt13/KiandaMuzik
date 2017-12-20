@@ -1,5 +1,7 @@
 package com.example.edson.kiandamuzik;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -7,7 +9,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class SplashScreenActivity extends AppCompatActivity {
-
+    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,10 @@ public class SplashScreenActivity extends AppCompatActivity {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
+                Intent intent = new Intent(context, PrincipalActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                startActivity(intent);
+                finish();
 
             }
         };
