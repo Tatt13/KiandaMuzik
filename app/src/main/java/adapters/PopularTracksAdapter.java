@@ -29,8 +29,6 @@ public class PopularTracksAdapter extends RecyclerView.Adapter<PopularTracksAdap
     }
 
 
-
-
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public ImageView trackCover;
         public TextView ArtistName;

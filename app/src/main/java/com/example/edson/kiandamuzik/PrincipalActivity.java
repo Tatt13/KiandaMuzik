@@ -1,10 +1,14 @@
 package com.example.edson.kiandamuzik;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -21,6 +25,9 @@ public class PrincipalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+        if(getActionBar() !=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         RecyclerView recyclerView = findViewById(R.id.artistList);
         Artist artist = new Artist();
@@ -47,5 +54,27 @@ public class PrincipalActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(tracksAdapter);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()== R.id.action_acerca) {
+            startActivity(new Intent(this, AboutActivity.class));
+        }else{
+            startActivity(new Intent(this, AboutActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     tools:context="com.example.edson.kiandamuzik.PrincipalActivity">
 
     <ImageView
@@ -66,7 +69,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/MusicasPopulares"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginStart="16dp"
@@ -74,7 +77,7 @@
         android:fontFamily="@font/montserrat_bold"
         android:text="Musicas Populares"
         android:textAllCaps="true"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -87,22 +90,22 @@
         android:layout_marginTop="37dp"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/artistList"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/MusicasPopulares"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_whatshot_black_18dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/artistList"
-        android:layout_width="385dp"
-        android:layout_height="137dp"
-        android:layout_marginBottom="72dp"
+        android:layout_width="391dp"
+        android:layout_height="146dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/MusicasPopulares"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </android.support.constraint.ConstraintLayout>
