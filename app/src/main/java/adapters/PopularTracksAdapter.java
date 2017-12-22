@@ -1,6 +1,7 @@
 package adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.edson.kiandamuzik.PrincipalActivity;
 import com.example.edson.kiandamuzik.R;
 
 import models.PopularTrackList;
@@ -21,7 +23,7 @@ import models.PopularTrackList;
 public class PopularTracksAdapter extends RecyclerView.Adapter<PopularTracksAdapter.ViewHolder> {
 
     private PopularTrackList mPopularList;
-    private Context context;
+    private static Context context;
 
     public PopularTracksAdapter ( Context context, PopularTrackList mPopularList) {
         this.context = context;
@@ -34,6 +36,7 @@ public class PopularTracksAdapter extends RecyclerView.Adapter<PopularTracksAdap
         public TextView ArtistName;
         public TextView TrackName;
         public ImageView ArtistVerifiedBadge;
+        View.OnClickListener mListener;
         //public ImageView mTrackDetails;
         public ViewHolder(View itemView){
             super(itemView);
@@ -43,6 +46,7 @@ public class PopularTracksAdapter extends RecyclerView.Adapter<PopularTracksAdap
             TrackName = itemView.findViewById(R.id.trackName);
             ArtistVerifiedBadge = itemView.findViewById(R.id.verifiedAccount);
             ArtistName = itemView.findViewById(R.id.artistName);
+
         }
 
 
@@ -52,8 +56,8 @@ public class PopularTracksAdapter extends RecyclerView.Adapter<PopularTracksAdap
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // instanciado outra classe neste caso list_item
         View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
-        PopularTracksAdapter.ViewHolder holder = new PopularTracksAdapter.ViewHolder(view);
-        return holder;
+        //PopularTracksAdapter.ViewHolder holder = new PopularTracksAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
 
@@ -63,6 +67,12 @@ public class PopularTracksAdapter extends RecyclerView.Adapter<PopularTracksAdap
         holder.ArtistName.setText(mPopularList.getPopularTracks().get(position).getArtist().getName());
         holder.TrackName.setText(mPopularList.getPopularTracks().get(position).getaName());
         holder.trackCover.setImageResource(mPopularList.getPopularTracks().get(position).getTrackCover());
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, PrincipalActivity.class));
+            }
+        });
         /*if(mPopularList.getPopularTracks().get(position).getArtist().isVerified()){
             holder.ArtistVerifiedBadge.setImageResource(R.drawable.ic_verified_user_black_18dp);
         }else {
