@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.edson.kiandamuzik.PrincipalActivity;
 import com.example.edson.kiandamuzik.R;
+import com.example.edson.kiandamuzik.TelaArtistaDetalhada;
 
 import models.PopularTrackList;
 
@@ -70,7 +71,7 @@ public class PopularTracksAdapter extends RecyclerView.Adapter<PopularTracksAdap
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, PrincipalActivity.class));
+                context.startActivity(new Intent(context, TelaArtistaDetalhada.class));
             }
         });
         /*if(mPopularList.getPopularTracks().get(position).getArtist().isVerified()){
